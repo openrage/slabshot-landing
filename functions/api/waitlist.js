@@ -68,7 +68,8 @@ export async function onRequestPost({ request, env }) {
                    : html(`<h1>You're in</h1><p>${msg}</p>`);
 }
 
-// A GET here shouldn't 405-crash; nudge back to the form.
-export async function onRequestGet() {
-  return Response.redirect("/#waitlist", 302);
+// A GET here shouldn't 405-crash; nudge back to the form. (Workers' Response.redirect needs an
+// ABSOLUTE URL — a relative path throws, which surfaced as a 500.)
+export async function onRequestGet({ request }) {
+  return Response.redirect(new URL("/#waitlist", request.url).toString(), 302);
 }
