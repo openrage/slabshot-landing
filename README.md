@@ -19,8 +19,7 @@ site/
 
 1. **Create the Pages project.** Cloudflare dashboard → Workers & Pages → Create → Pages →
    *Connect to Git* (this repo) **or** *Direct Upload*.
-   - Build command: *(none)* · Build output directory: `site` (if using the repo root) or `/`
-     (if you point Pages at the `site/` subfolder).
+   - Build command: *(none)* · Build output directory: `/` (this repo serves the site from root).
 2. **Custom domain.** Pages project → Custom domains → add `getslabshot.com` (and `www` →
    redirect). Cloudflare handles the TLS cert. Point the domain's nameservers/DNS at Cloudflare
    if it isn't already.
@@ -31,13 +30,19 @@ site/
    - Redeploy. `POST /api/waitlist` now writes `signup:<email>` → `{email,tester,ts,…}`.
    - If the binding is absent, the form still returns success (so previews work) but stores
      nothing — so don't forget the binding in Production.
+4. **In-app feedback sink (KV).** The Android app POSTs to `/api/feedback` (`functions/api/feedback.js`).
+   Create a second KV namespace (e.g. `slabshot_feedback`) and bind it as **`FEEDBACK`** (Production
+   + Preview), same as above. Stores `fb:<ts>:<id>` → `{message,email,tester,app_version,platform,…}`.
+   Scales to zero, free tier — no always-on server. (Fly is reserved for the real backend later:
+   fish-ID inference, data sync.)
 
-To read signups: KV namespace → *View* in the dashboard, or `wrangler kv:key list --binding WAITLIST`.
+To read signups/feedback: KV namespace → *View* in the dashboard, or
+`wrangler kv:key list --binding WAITLIST` / `--binding FEEDBACK`.
 
 ## Local preview
 
 ```
-npx wrangler pages dev site        # serves the static site + the /api/waitlist Function
+npx wrangler pages dev .           # serves the static site + the /api/waitlist & /api/feedback Functions
 ```
 (For the function to persist locally, pass a KV binding: `--kv WAITLIST`.)
 
