@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — SlabShot</title>
+<meta name="description" content="How SlabShot handles your data: offline by default, opt-in sharing, location coarsened before it ever leaves your phone.">
+<link rel="canonical" href="https://getslabshot.com/privacy.html">
+<meta name="theme-color" content="#0B1416">
+<link rel="icon" href="/assets/img/slabshot_mark.png">
+<link rel="stylesheet" href="/assets/css/slab.css">
+</head>
+<body>
+<div class="bg" aria-hidden="true"></div>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="/">
+      <span class="mark" aria-hidden="true"></span>
+      <span class="wordmark">SLABSHOT</span>
+    </a>
+    <nav><a href="/">Home</a></nav>
+  </div>
+</header>
+
+<main class="wrap">
+<article class="prose">
+  <h1>Privacy Policy</h1>
+  <p class="updated">Last updated: 8 June 2026</p>
+
+  <p>SlabShot is an <strong>offline-first</strong> fishing log. The app reconstructs your catches
+  on your own phone; by default nothing about your trips, catches, photos or location leaves the
+  device. This policy explains the few cases where data is used or — only with your explicit
+  choice — sent somewhere, and what this website collects.</p>
+
+  <h2>The short version</h2>
+  <ul>
+    <li>Your trips, catches and exact locations live <strong>on your phone</strong>. There is no
+      SlabShot account and no automatic upload.</li>
+    <li>When the app does reach the internet (area name + weather), your coordinates are
+      <strong>coarsened first</strong> — your exact spot is never sent.</li>
+    <li>Sharing your catch data with us is <strong>opt-in and off by default</strong>, and is
+      reduced to a county-level area — never precise coordinates.</li>
+    <li>We don't sell your data, run ads, or use third-party advertising/analytics trackers.</li>
+    <li>This website collects an <strong>email address only if you join the waitlist</strong>.</li>
+  </ul>
+
+  <h2>Data the app handles</h2>
+  <table>
+    <thead><tr><th>Data</th><th>Why</th><th>Leaves your device?</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>Location</strong> (precise &amp; approximate)</td>
+        <td>Tag catch positions and the trip track; show local conditions (weather, sunrise/sunset,
+          solunar). On bank trips, catch positions come from the phone's GPS.</td>
+        <td><strong>No</strong>, except: a <em>coarsened</em> (~county, ≈11 km) coordinate is sent
+          to a weather/geocoding provider to fetch the area name and conditions. Exact coordinates
+          are never transmitted.</td>
+      </tr>
+      <tr>
+        <td><strong>Photos &amp; videos</strong></td>
+        <td>Read from your camera roll to group them to catches by timestamp, to render share cards,
+          and (if you choose) to include in an export.</td>
+        <td><strong>No.</strong> Processed on-device. A share card is a freshly drawn image with no
+          GPS/EXIF. An export ZIP you create keeps your photos' original GPS — but it goes only
+          where <em>you</em> send it.</td>
+      </tr>
+      <tr>
+        <td><strong>Catch &amp; trip data</strong> (depth, temp, species, weight, lure, times)</td>
+        <td>Your fishing log and on-device insights.</td>
+        <td><strong>No</strong>, unless you opt in to data sharing (below).</td>
+      </tr>
+      <tr>
+        <td><strong>Diagnostics</strong> (raw sonar/NMEA stream, app/device info)</td>
+        <td>To fix fish-finder compatibility, especially on brands we haven't tested.</td>
+        <td><strong>Only when you choose to send a bundle.</strong> GPS coordinates in the stream
+          are scrubbed (dummied) before it's shared.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Optional, opt-in sharing</h2>
+  <p>Two separate switches, both <strong>off by default</strong> and revocable anytime in the app
+  (Settings → Data sharing):</p>
+  <h3>Trip &amp; catch sharing</h3>
+  <p>If enabled, you can send your catches to SlabShot to help build regional, descriptive
+  insights. Each catch's location is reduced to a <strong>county-level area name</strong> — no
+  exact coordinates are included. Shared fields: species, weight, depth, water temp, lure, date,
+  and the coarse area.</p>
+  <h3>Diagnostic bundles</h3>
+  <p>If enabled, you can send a diagnostic bundle (the GPS-scrubbed raw sonar stream plus
+  connection/parse and app/device details) to help us support more fish-finders.</p>
+  <p>Nothing is sent automatically. Turning a switch on simply lets you send via your phone's
+  normal share/email — you choose if and when.</p>
+
+  <h2>This website (getslabshot.com)</h2>
+  <p>The site is a static page hosted on Cloudflare Pages.</p>
+  <ul>
+    <li><strong>Waitlist / tester sign-up.</strong> If you submit the form, we store the
+      <strong>email address</strong> you provide, your consent, an optional "tester" preference,
+      and basic request metadata (timestamp, country code) so we can email you about the launch and
+      tester program. This is personal information you give us with explicit consent.</li>
+    <li><strong>No cookies, no advertising, no third-party analytics</strong> are set by this site.</li>
+    <li>Our host (Cloudflare) processes standard server/security logs (including IP address) to
+      deliver and protect the site, per their policies.</li>
+    <li>We use your email <strong>only</strong> for SlabShot launch and tester communication. You
+      can unsubscribe or request deletion at any time (see Contact).</li>
+  </ul>
+
+  <h2>Sharing &amp; selling</h2>
+  <p>We do <strong>not</strong> sell your personal information and do <strong>not</strong> share it
+  with data brokers or advertisers. Limited service providers help us operate (e.g. site hosting,
+  and the weather/geocoding lookup the app makes on coarsened coordinates); they process only what's
+  needed for that function.</p>
+
+  <h2>Retention</h2>
+  <p>App data stays on your device until you delete a trip or the app. Waitlist emails are kept
+  until you ask us to remove them or the waitlist program ends.</p>
+
+  <h2>Your choices &amp; rights</h2>
+  <ul>
+    <li>Grant or deny location, photo, and notification permissions in Android settings — the app
+      degrades gracefully without them.</li>
+    <li>Keep all sharing off (the default), or turn it off anytime.</li>
+    <li>Request access to, or deletion of, the email you gave the waitlist — email us below.</li>
+  </ul>
+
+  <h2>Children</h2>
+  <p>SlabShot is not directed to children under 13, and we don't knowingly collect their data.</p>
+
+  <h2>Changes</h2>
+  <p>We'll update this page if our practices change and revise the date above.</p>
+
+  <h2>Contact</h2>
+  <p>Questions or a deletion request: <a href="mailto:privacy@getslabshot.com">privacy@getslabshot.com</a>.</p>
+</article>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="foot-mark"><span class="mark" aria-hidden="true" style="width:18px;height:18px;"></span> SlabShot</span>
+    <span><a href="/">Home</a> &nbsp;·&nbsp; <a href="mailto:privacy@getslabshot.com">privacy@getslabshot.com</a></span>
+  </div>
+</footer>
+</body>
+</html>

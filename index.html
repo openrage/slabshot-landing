@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SlabShot — the fishing log that builds itself</title>
+<meta name="description" content="SlabShot reconstructs every catch — depth, temp, location, species, weight — from your fish-finder track or phone GPS by matching your photo times. Offline. Private. App coming.">
+<link rel="canonical" href="https://getslabshot.com/">
+<meta property="og:title" content="SlabShot — the fishing log that builds itself">
+<meta property="og:description" content="Auto-logged catches from your fish-finder or phone GPS. Offline, private, built for the water. Join the waitlist.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://getslabshot.com/">
+<meta property="og:image" content="https://getslabshot.com/assets/img/slabshot_mark.png">
+<meta name="theme-color" content="#0B1416">
+<link rel="icon" href="/assets/img/slabshot_mark.png">
+<link rel="apple-touch-icon" href="/assets/img/slabshot_mark.png">
+<link rel="preload" as="font" href="/assets/fonts/rajdhani_bold.ttf" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="/assets/css/slab.css">
+</head>
+<body>
+<div class="bg" aria-hidden="true"></div>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="/">
+      <span class="mark" aria-hidden="true"></span>
+      <span class="wordmark">SLABSHOT</span>
+    </a>
+    <nav><a href="#waitlist">Waitlist</a> &nbsp;·&nbsp; <a href="/privacy.html">Privacy</a></nav>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="mark-xl reveal d1" aria-hidden="true"></div>
+      <p class="eyebrow reveal d1">App coming</p>
+      <h1 class="reveal d2">The fishing log that<br><span class="accent">builds itself.</span></h1>
+      <p class="lede reveal d3">
+        Fish like normal and take photos. SlabShot reconstructs every catch — depth, water
+        temp, location, species and weight — by matching your photo times to your fish-finder
+        track, or your phone's GPS on the bank.
+      </p>
+      <div class="cta-row reveal d4">
+        <a class="btn" href="#waitlist">Join the waitlist</a>
+        <span class="pill">Offline · Private</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT IT DOES -->
+  <section>
+    <div class="wrap">
+      <p class="section-label">What it does</p>
+      <div class="grid">
+        <div class="card reveal d1">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 17l5-5 4 3 6-7"/><circle cx="18" cy="8" r="1.4" fill="currentColor" stroke="none"/></svg>
+          <h3>Auto-logged catches</h3>
+          <p>One tap marks a fish. The app stamps the spot, depth, temp and time — and groups your
+          photos to it afterward. No forms in the boat.</p>
+        </div>
+        <div class="card reveal d2">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 12a8 8 0 0 1 16 0"/><path d="M7.5 12a4.5 4.5 0 0 1 9 0"/><circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"/></svg>
+          <h3>Fish-finder sync</h3>
+          <p>Connects to your Lowrance/Garmin/Humminbird over Wi-Fi for the live sonar track and
+          depth. No unit? Bank mode logs from your phone's GPS.</p>
+        </div>
+        <div class="card reveal d3">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/></svg>
+          <h3>Private by design</h3>
+          <p>Your spots stay yours. Share cards blur location to a county area and carry no GPS.
+          Everything works offline — nothing's required to leave the boat.</p>
+        </div>
+        <div class="card reveal d4">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg>
+          <h3>Read the day</h3>
+          <p>Live weather, barometric trend, sunrise/sunset and moon — plus your own log-wide
+          insights once you've fished a few trips.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WAITLIST -->
+  <section id="waitlist">
+    <div class="wrap signup">
+      <p class="section-label">Be first on the water</p>
+      <div class="signup-card reveal d1">
+        <h3 style="font-family:Rajdhani;font-weight:700;font-size:26px;letter-spacing:.02em;">Join the waitlist</h3>
+        <p style="color:var(--muted);margin-top:6px;">Launch news and a shot at the tester build. No spam, ever.</p>
+        <form id="waitform" method="POST" action="/api/waitlist" novalidate>
+          <div class="field-row" style="margin-top:18px;">
+            <input type="email" name="email" placeholder="you@example.com" required autocomplete="email" aria-label="Email address">
+            <button class="btn" type="submit">Notify me</button>
+          </div>
+          <label class="consent">
+            <input type="checkbox" name="consent" value="yes" required>
+            <span>I agree to receive launch + tester emails from SlabShot, and to the
+              <a href="/privacy.html">privacy policy</a>. Unsubscribe anytime.</span>
+          </label>
+          <label class="consent" style="margin-top:8px;">
+            <input type="checkbox" name="tester" value="yes">
+            <span>I'd like to be considered as an early <strong>tester</strong> (optional).</span>
+          </label>
+          <p class="form-note" id="note" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="foot-mark"><span class="mark" aria-hidden="true" style="width:18px;height:18px;"></span> SlabShot · the fishing log that builds itself</span>
+    <span><a href="/privacy.html">Privacy</a> &nbsp;·&nbsp; <a href="mailto:hello@getslabshot.com">hello@getslabshot.com</a></span>
+  </div>
+</footer>
+
+<script src="/assets/js/waitlist.js" defer></script>
+</body>
+</html>
