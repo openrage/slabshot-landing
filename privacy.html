@@ -49,6 +49,10 @@
     <li>Crash/ANR diagnostics are sent to Sentry with <strong>no personal data</strong> attached.</li>
     <li>We don't sell your data, run ads, or use third-party analytics other than the crash
       reporter named below.</li>
+    <li><strong>Under 18:</strong> the app keeps everything on your device — for users under 18,
+      the few internet features that would send location (weather, place names, satellite map) are
+      <strong>turned off</strong>, and opt-in sharing is unavailable. Under-13 is not permitted.
+      See <a href="#minors">Children &amp; teens</a>.</li>
   </ul>
 
   <h2>What stays on your device</h2>
@@ -106,6 +110,13 @@
     </tbody>
   </table>
   <p>Map tiles, weather, and geocoded place names are cached and degrade cleanly when offline.</p>
+  <p><strong>Age-conditional:</strong> the first three rows (Weather, Place name, Satellite map) all
+  involve location leaving the device. For users who indicate they are <strong>under 18</strong> — or
+  who skip the age question — the app does <strong>not</strong> make those requests at all: weather
+  and the place-name lookup are skipped, and the trip map shows your track and catch markers without
+  downloading any satellite tiles. Crash/ANR diagnostics still apply to teens (they carry no personal
+  data); opt-in sharing is unavailable to anyone under 18. See <a href="#minors">Children &amp;
+  teens</a>.</p>
 
   <h2>Data types we collect (Google Play "Data safety" terms)</h2>
   <table>
@@ -118,7 +129,9 @@
         <td>Catch positions, the private trip map, weather/area lookups.</td>
         <td>Coarsened coordinates go to the weather/geocoding services above. Exact coordinates are
           <strong>not</strong> sent to any server, and are scrubbed from share cards. Sent to SlabShot
-          only via opt-in sharing, at county level.</td>
+          only via opt-in sharing, at county level. <strong>For users under 18, no location leaves the
+          device at all</strong> — the weather, place-name, and map-tile requests are disabled, and
+          sharing is unavailable.</td>
       </tr>
       <tr>
         <td><strong>Photos &amp; videos</strong></td>
@@ -158,7 +171,9 @@
   <h2>Optional, opt-in sharing</h2>
   <p>Two separate switches, both <strong>off by default</strong> and revocable anytime in the app
   (Settings → Data sharing). Nothing is sent automatically; turning a switch on only lets you send,
-  via your phone's normal share/email, when you choose.</p>
+  via your phone's normal share/email, when you choose. <strong>Opt-in sharing is available to
+  adults (18+) only</strong> — for users under 18 (or who skip the age question) both switches are
+  unavailable and cannot be enabled.</p>
   <h3>Trip &amp; catch sharing</h3>
   <p>If enabled, you can contribute your catches to help build regional, descriptive insights. Each
   catch's location is reduced to a <strong>county-level area name</strong> — no exact coordinates
@@ -207,8 +222,60 @@
       below.</li>
   </ul>
 
-  <h2>Children</h2>
-  <p>SlabShot is not directed to children under 13, and we don't knowingly collect their data.</p>
+  <h2 id="minors">Children &amp; teens</h2>
+  <p>SlabShot is intended for anglers <strong>13 and older</strong>. It is <strong>not</strong>
+  designed for or directed to children, and is not a "family" or child-audience app.</p>
+
+  <h3>Under 13 — not permitted</h3>
+  <p>At first launch the app asks for your date of birth (see <a href="#age">How we determine
+  age</a>). If you indicate you are under 13, SlabShot <strong>blocks access</strong> — a polite
+  stop screen is shown and no other part of the app opens, so no trips, catches, photos, location,
+  or diagnostics are collected. We do <strong>not</strong> knowingly collect personal information
+  from children under 13. If you believe a child under 13 has somehow provided us information (for
+  example, through the waitlist or feedback form on this site), email
+  <a href="mailto:privacy@getslabshot.com">privacy@getslabshot.com</a> and we will delete it.</p>
+
+  <h3>Teens 13–17 — on-device only</h3>
+  <p>For users who indicate they are 13–17 (or who skip the age question, which we treat the same
+  way), SlabShot runs in an <strong>on-device-only</strong> mode:</p>
+  <ul>
+    <li><strong>No data is shared off the device.</strong> The opt-in Trip/catch sharing and
+      Diagnostic-bundle switches are unavailable and cannot be turned on.</li>
+    <li><strong>Location never leaves the device.</strong> The weather lookup and the catch-card
+      place-name lookup are skipped entirely, and the private trip map draws your track and catch
+      markers <em>without</em> requesting any satellite map tiles — so no coordinates (not even
+      coarsened ones) are sent to any third party.</li>
+    <li><strong>Crash/ANR diagnostics still apply</strong> and contain <strong>no personal
+      data</strong> (no user identifier, IP, location, photo paths, or catch data — same as for
+      adults). If we ever needed to stop teen diagnostics entirely, that is a single switch in the
+      app.</li>
+    <li><strong>Everything on-device works fully</strong> — capture, Mark Catch, photo matching,
+      manual entry, measuring, the local map, on-device insights, share-card generation, and your
+      own backup/export. Minors simply cannot push data off the device.</li>
+  </ul>
+
+  <h3 id="age">How we determine age, and what we store</h3>
+  <ul>
+    <li><strong>Neutral question.</strong> On first launch we ask your date of birth with no hint at
+      a "right" answer; you can skip it (we then treat you as a minor until you say otherwise).</li>
+    <li><strong>Stored on-device only.</strong> Your self-declared birthdate is saved only on your
+      phone and is <strong>never transmitted</strong> to us or anyone else. The resulting age status
+      (adult / teen / unknown / under-13) is computed on the device and is likewise never stored on a
+      server or sent off the device — including in crash reports.</li>
+    <li><strong>Play age signals.</strong> Where the law requires age assurance, the app may consult
+      Google Play's age-signal service at runtime to confirm your age band; that result is used only
+      to set the on-device gates above. It is <strong>not stored</strong>, and is <strong>never</strong>
+      used for advertising, analytics, or profiling. (This pathway is built but not active in the
+      current build.)</li>
+  </ul>
+
+  <h3>Parents &amp; guardians</h3>
+  <p>Because SlabShot stores a teen's data only on their device and never sends it to us, we do not
+  hold a teen's fishing data to provide or delete. On-device data is removed by deleting a trip or
+  uninstalling the app. If your child under 13 reached our waitlist or feedback form and you want
+  that information removed, or you have any question about a minor's data, contact
+  <a href="mailto:privacy@getslabshot.com">privacy@getslabshot.com</a> and we will respond and delete
+  as required.</p>
 
   <h2>Changes</h2>
   <p>We'll update this page if our practices change and revise the date above.</p>
