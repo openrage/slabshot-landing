@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Privacy Policy — SlabShot</title>
-<meta name="description" content="How SlabShot handles your data: offline by default, opt-in sharing, location coarsened before it ever leaves your phone.">
+<meta name="description" content="How SlabShot handles your data: offline by default, opt-in sharing, location coarsened before it ever leaves your phone. Plain-language and accurate to the app.">
 <link rel="canonical" href="https://getslabshot.com/privacy.html">
 <meta name="theme-color" content="#0B1416">
 <link rel="icon" href="/favicon.ico" sizes="any">
@@ -28,108 +28,183 @@
 <main class="wrap">
 <article class="prose">
   <h1>Privacy Policy</h1>
-  <p class="updated">Last updated: 8 June 2026</p>
+  <p class="updated">Last updated: 9 June 2026</p>
 
-  <p>SlabShot is an <strong>offline-first</strong> fishing log. The app reconstructs your catches
-  on your own phone; by default nothing about your trips, catches, photos or location leaves the
-  device. This policy explains the few cases where data is used or — only with your explicit
-  choice — sent somewhere, and what this website collects.</p>
+  <p>SlabShot is an <strong>offline-first</strong> fishing log. The app reconstructs your catches on
+  your own phone; by default, nothing about your trips, catches, photos, or location is sent
+  anywhere. There are no accounts. This policy describes exactly what stays on your device, the few
+  times the app talks to the internet (and what it sends), the named third parties involved, and
+  your choices — written to match the app's actual behavior.</p>
 
   <h2>The short version</h2>
   <ul>
-    <li>Your trips, catches and exact locations live <strong>on your phone</strong>. There is no
-      SlabShot account and no automatic upload.</li>
-    <li>When the app does reach the internet (area name + weather), your coordinates are
-      <strong>coarsened first</strong> — your exact spot is never sent.</li>
+    <li>Your trips, catches, photos, and exact locations live <strong>on your phone</strong>. No
+      account, no automatic upload.</li>
+    <li>When the app does use the internet, your coordinates are <strong>coarsened first</strong>
+      (rounded to about 11&nbsp;km) — your exact spot is not sent.</li>
+    <li>Location is used <strong>only while you're using the app</strong> (a one-time fix when you
+      Mark a Catch or view conditions). <strong>No background location.</strong></li>
     <li>Sharing your catch data with us is <strong>opt-in and off by default</strong>, and is
       reduced to a county-level area — never precise coordinates.</li>
-    <li>We don't sell your data, run ads, or use third-party advertising/analytics trackers.</li>
-    <li>This website collects an <strong>email address only if you join the waitlist</strong>.</li>
+    <li>Crash/ANR diagnostics are sent to Sentry with <strong>no personal data</strong> attached.</li>
+    <li>We don't sell your data, run ads, or use third-party analytics other than the crash
+      reporter named below.</li>
   </ul>
 
-  <h2>Data the app handles</h2>
+  <h2>What stays on your device</h2>
+  <p>All of this is stored locally and is not transmitted to any server unless you explicitly export
+  or opt in (see below):</p>
+  <ul>
+    <li><strong>Catch &amp; trip logs</strong> — depth, water temp, position, species, weight, lure,
+      times.</li>
+    <li><strong>The GPS track &amp; raw sonar data</strong> — recorded from your fish-finder over
+      Wi-Fi (or your phone's GPS on bank trips).</li>
+    <li><strong>Your photos &amp; videos</strong> — read from your camera roll to match them to
+      catches; they are <em>not</em> copied off your device by the app.</li>
+    <li><strong>Settings</strong> — your tackle box, boat-electronics choice, and preferences.</li>
+  </ul>
+
+  <h2>When the app uses the internet</h2>
+  <p>These are the only times SlabShot makes a network request, the data sent, and the third party
+  that receives it. Every request uses HTTPS (encrypted in transit).</p>
   <table>
-    <thead><tr><th>Data</th><th>Why</th><th>Leaves your device?</th></tr></thead>
+    <thead><tr><th>Feature</th><th>Sent</th><th>To whom</th></tr></thead>
     <tbody>
       <tr>
-        <td><strong>Location</strong> (precise &amp; approximate)</td>
-        <td>Tag catch positions and the trip track; show local conditions (weather, sunrise/sunset,
-          solunar). On bank trips, catch positions come from the phone's GPS.</td>
-        <td><strong>No</strong>, except: a <em>coarsened</em> (~county, ≈11 km) coordinate is sent
-          to a weather/geocoding provider to fetch the area name and conditions. Exact coordinates
-          are never transmitted.</td>
+        <td><strong>Weather &amp; daylight</strong> (home conditions, catch cards)</td>
+        <td>A <strong>coarsened</strong> latitude/longitude (rounded to ~11&nbsp;km). No exact
+          coordinates, no identity.</td>
+        <td><strong>Open-Meteo</strong> (weather API)</td>
+      </tr>
+      <tr>
+        <td><strong>Place name on a catch card</strong></td>
+        <td>A <strong>coarsened</strong> latitude/longitude (~11&nbsp;km) to look up a county/area
+          name.</td>
+        <td>Your device's <strong>geocoding service</strong> (on most phones, Google)</td>
+      </tr>
+      <tr>
+        <td><strong>Satellite map</strong> (private, in-app trip map)</td>
+        <td>Standard map-tile requests for the area you're viewing. This is your precise spots view,
+          so the tile server can infer the <em>general area</em> of your catches from which tiles
+          are requested. Map data is never shared with other users or attached to anything you post.</td>
+        <td><strong>Esri</strong> World Imagery tiles (<code>arcgisonline.com</code>)</td>
+      </tr>
+      <tr>
+        <td><strong>Crash &amp; ANR diagnostics</strong></td>
+        <td>A crash/freeze stack trace, app version, device model and OS version, and breadcrumbs
+          that are <strong>screen names only</strong>. <strong>No</strong> user identifier, IP,
+          GPS, photo paths, or catch data (stripped before sending).</td>
+        <td><strong>Sentry</strong> (error-reporting; US region)</td>
+      </tr>
+      <tr>
+        <td><strong>Waitlist / in-app feedback</strong> (only if you submit it)</td>
+        <td>Your email (if you provide it), your message text, an optional "tester" choice, and — for
+          feedback — your app version and device model. A country code is derived from your IP by
+          our host.</td>
+        <td>Our serverless endpoint on <strong>Cloudflare</strong></td>
+      </tr>
+    </tbody>
+  </table>
+  <p>Map tiles, weather, and geocoded place names are cached and degrade cleanly when offline.</p>
+
+  <h2>Data types we collect (Google Play "Data safety" terms)</h2>
+  <table>
+    <thead><tr><th>Type</th><th>Collected?</th><th>Purpose</th><th>Shared / sent off device?</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>Location</strong> (approximate &amp; precise)</td>
+        <td>On-device. Precise to tag catches/track; coarsened (~11&nbsp;km) for weather + place
+          names. <strong>Not background.</strong></td>
+        <td>Catch positions, the private trip map, weather/area lookups.</td>
+        <td>Coarsened coordinates go to the weather/geocoding services above. Exact coordinates are
+          <strong>not</strong> sent to any server, and are scrubbed from share cards. Sent to SlabShot
+          only via opt-in sharing, at county level.</td>
       </tr>
       <tr>
         <td><strong>Photos &amp; videos</strong></td>
-        <td>Read from your camera roll to group them to catches by timestamp, to render share cards,
-          and (if you choose) to include in an export.</td>
-        <td><strong>No.</strong> Processed on-device. A share card is a freshly drawn image with no
-          GPS/EXIF. An export ZIP you create keeps your photos' original GPS — but it goes only
-          where <em>you</em> send it.</td>
+        <td>On-device (read from your library).</td>
+        <td>Match media to catches; render share cards; optional export you initiate.</td>
+        <td>Not sent to any server by the app. Share cards are freshly drawn with no EXIF/GPS;
+          exported video is re-encoded with no location metadata.</td>
       </tr>
       <tr>
-        <td><strong>Catch &amp; trip data</strong> (depth, temp, species, weight, lure, times)</td>
+        <td><strong>App activity / other</strong>: catch &amp; trip data</td>
+        <td>On-device.</td>
         <td>Your fishing log and on-device insights.</td>
-        <td><strong>No</strong>, unless you opt in to data sharing (below).</td>
+        <td>Not unless you opt in to sharing (county-level area only).</td>
       </tr>
       <tr>
-        <td><strong>Diagnostics</strong> (raw sonar/NMEA stream, app/device info)</td>
-        <td>To fix fish-finder compatibility, especially on brands we haven't tested.</td>
-        <td><strong>Only when you choose to send a bundle.</strong> GPS coordinates in the stream
-          are scrubbed (dummied) before it's shared.</td>
+        <td><strong>Crash logs &amp; diagnostics</strong></td>
+        <td>Yes — on crash/ANR.</td>
+        <td>Fix stability bugs.</td>
+        <td>Sent to Sentry. No personal data attached.</td>
+      </tr>
+      <tr>
+        <td><strong>Personal info — email</strong></td>
+        <td>Only if you give it (waitlist / feedback).</td>
+        <td>Reply to you; launch &amp; tester updates.</td>
+        <td>Stored on our Cloudflare endpoint. Not sold or shared with advertisers.</td>
+      </tr>
+      <tr>
+        <td><strong>Messages — feedback text</strong></td>
+        <td>Only if you send feedback.</td>
+        <td>Improve the app.</td>
+        <td>Stored on our Cloudflare endpoint. May contain whatever you type, so please don't include
+          sensitive details.</td>
       </tr>
     </tbody>
   </table>
 
   <h2>Optional, opt-in sharing</h2>
   <p>Two separate switches, both <strong>off by default</strong> and revocable anytime in the app
-  (Settings → Data sharing):</p>
+  (Settings → Data sharing). Nothing is sent automatically; turning a switch on only lets you send,
+  via your phone's normal share/email, when you choose.</p>
   <h3>Trip &amp; catch sharing</h3>
-  <p>If enabled, you can send your catches to SlabShot to help build regional, descriptive
-  insights. Each catch's location is reduced to a <strong>county-level area name</strong> — no
-  exact coordinates are included. Shared fields: species, weight, depth, water temp, lure, date,
-  and the coarse area.</p>
+  <p>If enabled, you can contribute your catches to help build regional, descriptive insights. Each
+  catch's location is reduced to a <strong>county-level area name</strong> — no exact coordinates
+  are included. Shared fields: species, weight, depth, water temp, lure, date, and the coarse area.</p>
   <h3>Diagnostic bundles</h3>
-  <p>If enabled, you can send a diagnostic bundle (the GPS-scrubbed raw sonar stream plus
-  connection/parse and app/device details) to help us support more fish-finders.</p>
-  <p>Nothing is sent automatically. Turning a switch on simply lets you send via your phone's
-  normal share/email — you choose if and when.</p>
+  <p>If enabled, you can send a diagnostic bundle (a GPS-scrubbed raw sonar stream plus
+  connection/parse and app/device details) to help us support more fish-finders. GPS coordinates in
+  the sonar stream are removed before it leaves your phone.</p>
 
-  <h2>This website (getslabshot.com)</h2>
-  <p>The site is a static page hosted on Cloudflare Pages.</p>
+  <h2>Exports you control</h2>
   <ul>
-    <li><strong>Waitlist / tester sign-up.</strong> If you submit the form, we store the
-      <strong>email address</strong> you provide, your consent, an optional "tester" preference,
-      and basic request metadata (timestamp, country code) so we can email you about the launch and
-      tester program. This is personal information you give us with explicit consent.</li>
-    <li><strong>In-app feedback &amp; tester opt-in.</strong> If you send feedback from inside the
-      app, we receive your message plus your app version and device model (for triage), and — only
-      if you provide them — your email address and/or a request to join the tester program. We use
-      this to improve SlabShot and, where you give an email, to reply or send a tester invite. It
-      posts to the same Cloudflare endpoint as the waitlist; no exact location is included.</li>
-    <li><strong>No cookies, no advertising, no third-party analytics</strong> are set by this site.</li>
-    <li>Our host (Cloudflare) processes standard server/security logs (including IP address) to
-      deliver and protect the site, per their policies.</li>
-    <li>We use your email <strong>only</strong> for SlabShot launch and tester communication. You
-      can unsubscribe or request deletion at any time (see Contact).</li>
+    <li><strong>Share cards</strong> (still, frame-grab, video, collage, slideshow) carry
+      <strong>no GPS or EXIF</strong> — the image is drawn fresh and the video is re-encoded, and
+      any location shown on a card is blurred to a county area or off.</li>
+    <li><strong>"Export my trips" (a ZIP, in Settings)</strong> is your own full backup. It
+      <em>intentionally keeps</em> your photos' original GPS and your exact track, because it's for
+      you. It is <strong>not</strong> sent to us or any server — it goes only where you choose to
+      send it. Treat that ZIP as you would any file containing your locations.</li>
   </ul>
 
   <h2>Sharing &amp; selling</h2>
   <p>We do <strong>not</strong> sell your personal information and do <strong>not</strong> share it
-  with data brokers or advertisers. Limited service providers help us operate (e.g. site hosting,
-  and the weather/geocoding lookup the app makes on coarsened coordinates); they process only what's
-  needed for that function.</p>
+  with data brokers or advertisers. The only third parties that ever receive data are the service
+  providers named above (Sentry for crash reports; Open-Meteo for weather; your device's geocoder
+  and Esri for the map; Cloudflare for the waitlist/feedback endpoint), each processing only what
+  that function needs.</p>
 
-  <h2>Retention</h2>
-  <p>App data stays on your device until you delete a trip or the app. Waitlist emails are kept
-  until you ask us to remove them or the waitlist program ends.</p>
+  <h2>Security</h2>
+  <p>All network requests use HTTPS/TLS. On-device data is protected by Android's app sandbox.</p>
 
-  <h2>Your choices &amp; rights</h2>
+  <h2>Permissions</h2>
+  <p>SlabShot requests location (catch positions, the private map, and to connect to your
+  fish-finder's Wi-Fi), photo/media access (to match and export your catch photos), notifications
+  (for the recording status notification — recording works without it), nearby-Wi-Fi (to join the
+  finder's network), and foreground-service/wake permissions (to keep recording with the screen
+  off). It does <strong>not</strong> request background location. Denying any permission degrades
+  gracefully — the app tells you what's affected and keeps working.</p>
+
+  <h2>Retention &amp; deletion</h2>
   <ul>
-    <li>Grant or deny location, photo, and notification permissions in Android settings — the app
-      degrades gracefully without them.</li>
-    <li>Keep all sharing off (the default), or turn it off anytime.</li>
-    <li>Request access to, or deletion of, the email you gave the waitlist — email us below.</li>
+    <li><strong>On-device data</strong> stays until you delete a trip or uninstall the app.</li>
+    <li><strong>Waitlist/feedback email</strong> is kept until you ask us to remove it.</li>
+    <li><strong>Crash reports</strong> are retained by Sentry per their default retention and contain
+      no personal data.</li>
+    <li>To request access to, or deletion of, the email/feedback you sent us, email the address
+      below.</li>
   </ul>
 
   <h2>Children</h2>
